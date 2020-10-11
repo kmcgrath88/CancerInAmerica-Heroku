@@ -1,0 +1,11 @@
+flask 
+gunicorn
+os
+json
+requests
+bson
+flask_pymongo 
+# import cancer_scrape # Bringing in cancer_scrape.py file
+pandas
+geojson
+flask_cors
