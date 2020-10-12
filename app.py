@@ -23,7 +23,7 @@ app.config['CORS_ORIGINS'] = '*'
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/cancer_app" 
 
 # Web Hosted MongoDB
-app.config["MONGO_URI"] = "mongodb+srv://kmcgrath:Melissa88!@cancerinamerica.7m8ys.mongodb.net/cancer_app?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = "mongodb+srv://kr1st1:6zEFMSC2TGatcT4@cancerdata.xn0wa.mongodb.net/cancer_app?retryWrites=true&w=majority"
 
 mongo = PyMongo(app)
 
