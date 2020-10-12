@@ -1,7 +1,7 @@
 flask 
 gunicorn
 # json
-# requests
+requests == 2.22.0
 bson
 flask_pymongo 
 # import cancer_scrape # Bringing in cancer_scrape.py file
