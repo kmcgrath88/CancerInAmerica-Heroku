@@ -9,3 +9,4 @@ flask_pymongo
 pandas
 geojson
 flask_cors
+dnspython

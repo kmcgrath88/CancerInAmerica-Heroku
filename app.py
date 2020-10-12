@@ -10,7 +10,7 @@ import pandas as pd
 import geojson
 from flask_cors import CORS, cross_origin
 
-app = Flask(__name__, static_url_path = '', static_folder= 'templates')
+app = Flask(__name__, static_url_path = '', static_folder= '')
 CORS(app, resources={
     r"/*": {
         "origins": "*"
@@ -32,8 +32,8 @@ mongo = PyMongo(app)
 @cross_origin()
 def index():
     cancer_data = mongo.db.cancer_data.find_one()
-    # return render_template("index.html", cancer_data = cancer_data)
-    return app.send_static_file("index.html")
+    return render_template("index.html", cancer_data = cancer_data)
+    # return app.send_static_file("index.html") #, cancer_data = cancer_data)
 
 # Route to get cancer incidence geoJSON data
 @app.route("/cancer_dash/", methods = ["GET",  "POST"])
@@ -93,8 +93,9 @@ def index3():
 def scraper():
     cancer_data = mongo.db.cancer_data
     cancer_data2 = cancer_scrape.scrape()
-    cancer_data.update({}, cancer_data2, upsert=True)
+    cancer_data.replace_one({}, cancer_data2, upsert=True)
     return redirect("/")
+   
 
 if __name__ == "__main__":
     app.run(debug=True)
