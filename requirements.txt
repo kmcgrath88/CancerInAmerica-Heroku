@@ -10,3 +10,4 @@ geojson
 flask_cors
 dnspython
 splinter
+bs4
