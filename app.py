@@ -88,7 +88,7 @@ def index3():
 
 # Creating app route "/scrape" and defining function 
 # Updating MongoDB with scraped data - route for loading data in
-@app.route("/scrape")
+@app.route("/scrape", methods = ["GET",  "POST"])
 @cross_origin()
 def scraper():
     cancer_data = mongo.db.cancer_data
