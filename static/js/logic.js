@@ -60,10 +60,10 @@ function init() {
 function updateDash(state) {
 
   // Retrieving data from MongoDB through python, flask, and the app.py file
-  d3.request("http://127.0.0.1:5000/cancer_dash/").get(incomingData => {
+  d3.request("/cancer_dash/").get(incomingData => {
     var incomingData = JSON.parse(incomingData.response);
 
-    d3.request("http://127.0.0.1:5000/cancer_mortality").get(incomingMortalityData => {
+    d3.request("/cancer_mortality").get(incomingMortalityData => {
       var mortalityData = JSON.parse(incomingMortalityData.response);
       console.log(mortalityData);
 
@@ -497,7 +497,7 @@ function chooseColor(val) {
 };
 
 // Grabbing our GeoJSON data
-d3.request("http://127.0.0.1:5000/cancer_dash/").get(data => {
+d3.request("/cancer_dash/").get(data => {
   var data = JSON.parse(data.response)
   // Creating a GeoJSON layer with the retrieved data
   L.geoJson(data, {
