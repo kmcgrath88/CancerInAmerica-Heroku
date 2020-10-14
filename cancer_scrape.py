@@ -3,19 +3,23 @@ from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 import time
+from selenium import webdriver
 
 # Function to intialize brower
 def init_browser():
-    executable_path = {"executable_path": "chromedriver.exe"}
-    return Browser("chrome", **executable_path, headless=False)
+
+    # executable_path = {"executable_path": "chromedriver.exe"}
+    driver = webdriver.Chrome()
+    return driver.get("https://www.cancer.gov/news-events")
+    # return Browser("chrome", **executable_path, headless=False)
 
 # Function to scrape information - steps from jupyter notebook
 def scrape():
     browser = init_browser()
 
     #####--Cancer News Site--#####
-    url = "https://www.cancer.gov/news-events"
-    browser.visit(url)
+    # url = "https://www.cancer.gov/news-events"
+    # browser.visit(url)
 
     # Allow page to load
     time.sleep(1) 
