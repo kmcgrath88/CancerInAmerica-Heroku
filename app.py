@@ -91,8 +91,10 @@ def index3():
 @app.route("/scrape", methods = ["GET",  "POST"])
 @cross_origin()
 def scraper():
+    print('hi')
     cancer_data = mongo.db.cancer_data
     cancer_data2 = cancer_scrape.scrape()
+    print('after scrape')
     cancer_data.replace_one({}, cancer_data2, upsert=True)
     return redirect("/")
    
