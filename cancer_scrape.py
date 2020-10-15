@@ -20,10 +20,10 @@ def init_browser():
     # return driver.get("https://www.cancer.gov/news-events")
 
     chrome_options = Options()
-    chrome_options.binary_location = GOOGLE_CHROME_BIN
+    chrome_options.binary_location = process.env.GOOGLE_CHROME_BIN
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
-    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=process.env.CHROMEDRIVER_PATH, chrome_options=chrome_options)
     return driver.get("https://www.cancer.gov/news-events")
     # return Browser("chrome", **executable_path, headless=False)
 
