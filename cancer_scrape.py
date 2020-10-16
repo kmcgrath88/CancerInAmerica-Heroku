@@ -20,16 +20,22 @@ def init_browser():
     # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     # return driver.get("https://www.cancer.gov/news-events")
 
-    chrome_options = Options()
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
+    # chrome_options = Options()
+    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    # chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--no-sandbox')
+    # chrome_options.add_argument('--disable-dev-shm-usage')
 
-    chrome_options.add_argument('--disable-gpu')
+    # chrome_options.add_argument('--disable-gpu')
     
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    browser = driver.get("https://www.cancer.gov/news-events")
+    # # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
+
+    # browser = driver.get("https://www.cancer.gov/news-events")
+
+    executable_path = {"executable_path": os.environ.get("CHROMEDRIVER_PATH")}
+    browser = Browser("chrome", **executable_path, headless=False)
+
     # return Browser("chrome", **executable_path, headless=False)
 
 # Function to scrape information - steps from jupyter notebook
@@ -37,8 +43,8 @@ def scrape():
     init_browser()
 
     #####--Cancer News Site--#####
-    # url = "https://www.cancer.gov/news-events"
-    # browser.visit(url)
+    url = "https://www.cancer.gov/news-events"
+    browser.visit(url)
 
     # Allow page to load
     time.sleep(1) 
