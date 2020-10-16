@@ -7,6 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
 
+browser = None
 # Function to intialize brower
 def init_browser():
 
@@ -28,16 +29,16 @@ def init_browser():
     chrome_options.add_argument('--disable-gpu')
     
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    return driver.get("https://www.cancer.gov/news-events")
+    browser = driver.get("https://www.cancer.gov/news-events")
     # return Browser("chrome", **executable_path, headless=False)
 
 # Function to scrape information - steps from jupyter notebook
 def scrape():
-    browser = init_browser()
+    init_browser()
 
     #####--Cancer News Site--#####
-    url = "https://www.cancer.gov/news-events"
-    browser.visit(url)
+    # url = "https://www.cancer.gov/news-events"
+    # browser.visit(url)
 
     # Allow page to load
     time.sleep(1) 
