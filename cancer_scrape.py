@@ -59,7 +59,7 @@ def scrape():
     resp2 = requests.get(news_data['news_url'])
     soup2 = bs(resp2.text, "html.parser")
     # Retrieving date and adding to dictionary
-    news_data['date'] = soup2.select('time').text
+    news_data['date'] = soup2.find('time').text
 
     # Quit the browser after scraping
     # browser.quit()
